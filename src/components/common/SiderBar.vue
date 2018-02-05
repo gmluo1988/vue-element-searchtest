@@ -52,7 +52,7 @@
 					{
 						icon: 'el-icon-menu',
 						index: 'apitest',
-						title: '接口测试',
+						title: 'Api测试',
 						subs: [{
 							index: 'searchapitest',
 							title: '搜索接口测试'
@@ -61,7 +61,7 @@
 					{
 						icon: 'el-icon-menu',
 						index: 'apptest',
-						title: 'app测试',
+						title: 'App测试',
 						subs: [{
 							index: 'androidtest',
 							title: '安卓测试'
@@ -73,7 +73,7 @@
 					{
 						icon: 'el-icon-menu',
 						index: 'webtest',
-						title: 'web测试',
+						title: 'Web测试',
 						subs: [{
 							index: 'webtest',
 							title: 'WEB测试'
