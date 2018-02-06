@@ -28,6 +28,90 @@
 				<br>
 				<el-checkbox disabled checked>从log日志获取报文</el-checkbox>
 				<br>
+					<el-checkbox disabled checked>登录/注销</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文查看</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文保存</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文编辑</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文删除</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>从log日志获取报文</el-checkbox>
+				<br>
+					<el-checkbox disabled checked>登录/注销</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文查看</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文保存</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文编辑</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文删除</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>从log日志获取报文</el-checkbox>
+				<br>
+					<el-checkbox disabled checked>登录/注销</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文查看</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文保存</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文编辑</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文删除</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>从log日志获取报文</el-checkbox>
+				<br>
+					<el-checkbox disabled checked>登录/注销</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文查看</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文保存</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文编辑</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文删除</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>从log日志获取报文</el-checkbox>
+				<br>
+					<el-checkbox disabled checked>登录/注销</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文查看</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文保存</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文编辑</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文删除</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>从log日志获取报文</el-checkbox>
+				<br>
+					<el-checkbox disabled checked>登录/注销</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文查看</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文保存</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文编辑</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文删除</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>从log日志获取报文</el-checkbox>
+				<br>
+					<el-checkbox disabled checked>登录/注销</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文查看</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文保存</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文编辑</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>搜索报文删除</el-checkbox>
+				<br>
+				<el-checkbox disabled checked>从log日志获取报文</el-checkbox>
+				<br>
 			</article>
 		</div>
 
