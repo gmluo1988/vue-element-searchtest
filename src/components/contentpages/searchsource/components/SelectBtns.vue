@@ -25,7 +25,6 @@
 			</el-col>
 			<el-col :span="8" class="searchBtn">
 				<p v-if="sourcetitle">您选择的是:<strong><font color="#409EFF">{{sourcetitle}}</font></strong></p>
-
 			</el-col>
 		</el-row>
 	</div>
