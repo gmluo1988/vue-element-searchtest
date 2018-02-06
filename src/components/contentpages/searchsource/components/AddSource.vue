@@ -40,16 +40,21 @@
 				this.$confirm('是否放弃保存次报文？')
 					.then(_ => {
 						done();
+						this.$message('取消保存...');
 					})
 					.catch(_ => {});
 			},
-			cancelSave(){
+			cancelSave() {
 				//执行某些操作
-					this.dialogFormVisible = false;
+				this.$message('取消保存...');
+				this.dialogFormVisible = false;
 			},
-			saveBtn(){
+			saveBtn() {
 				//执行save操作
-				
+				this.$message({
+					message: '保存成功!',
+					type: 'success'
+				});
 				this.dialogFormVisible = false;
 			}
 		}
@@ -57,5 +62,5 @@
 </script>
 
 <style>
-	
+
 </style>

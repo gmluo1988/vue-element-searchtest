@@ -40,7 +40,7 @@
 
 <script>
 	import UpdateSource from './components/UpdateSource.vue'
-	
+
 	import TicketSearchMode from './components/TicketSearchMode.vue'
 
 	import ActivityGongGe from './components/ActivityGongGe.vue'
@@ -74,13 +74,14 @@
 		computed: {},
 		methods: {
 			searchsource() {
-
-				alert("搜索报文！")
-
+				this.$message({
+					message: '报文查询中...',
+					type: 'success'
+				});
 			},
-			addsource() {
-				alert("添加搜索报文！")
-			}
+//			addsource() {
+//				alert("添加搜索报文！")
+//			}
 		}
 	}
 </script>

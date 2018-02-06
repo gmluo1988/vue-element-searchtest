@@ -32,7 +32,7 @@
 			</el-table-column>
 		</el-table>
 		<!--查看/编辑按钮操作的对话框-->
-		<el-dialog title="查看/修改搜索报文" :visible.sync="updateVisible" :before-close="handleClose">
+		<el-dialog title="查看/修改搜索报文" :visible.sync="updateVisible" :before-close="handleClose" center>
 			<el-form :model="updateForm">
 				<el-input type="textarea" autosize placeholder="此处显示数据的id" v-model="updateForm.id">
 				</el-input>
@@ -77,16 +77,22 @@
 				this.updateVisible = true;
 			},
 			cancelUpdate() {
+				this.$message('取消修改...');
 				this.updateVisible = false;
 			},
 			saveUpdate() {
 				//执行数据修改操作
+				this.$message({
+					message: '修改成功!',
+					type: 'success'
+				});
 				this.updateVisible = false;
 			},
 			handleClose(done) {
 				this.$confirm('是否放弃此次修改？')
 					.then(_ => {
 						done();
+						this.$message('取消修改...');
 					})
 					.catch(_ => {});
 			},
