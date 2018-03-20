@@ -14,9 +14,6 @@
 			<SelectBtns></SelectBtns>
 		</div>
 		<div class="pagecontent-body">
-			<!--<div >
-				<UpdateSource></UpdateSource>
-			</div>-->
 			<div>
 				<el-row>
 					<el-col :span="2" :offset="20">
@@ -50,7 +47,7 @@
 
 	import SourceTable from './components/SourceTable.vue'
 
-	import Pagination from './components/Pagination.vue'
+	import Pagination from '../../common/Pagination.vue'
 
 	import AddSource from './components/AddSource.vue'
 
@@ -79,9 +76,6 @@
 					type: 'success'
 				});
 			},
-//			addsource() {
-//				alert("添加搜索报文！")
-//			}
 		}
 	}
 </script>

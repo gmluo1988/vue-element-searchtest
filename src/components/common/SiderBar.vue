@@ -82,6 +82,11 @@
 							title: 'H5测试'
 						}]
 					},
+					{
+						icon: 'el-icon-setting',
+						index: 'usermanage',
+						title: '用户管理'
+					}
 				]
 			}
 		},
