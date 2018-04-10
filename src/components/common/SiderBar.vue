@@ -24,12 +24,12 @@
 		data() {
 			return {
 				items: [{
-						icon: 'el-icon-setting',
+						icon: 'el-icon-document',
 						index: 'home',
 						title: '系统概述'
 					},
 					{
-						icon: 'el-icon-menu',
+						icon: 'el-icon-date',
 						index: 'searchsource',
 						title: '搜索报文',
 						subs: [{
@@ -41,7 +41,7 @@
 						}]
 					},
 					{
-						icon: 'el-icon-menu',
+						icon: 'el-icon-date',
 						index: 'testreport',
 						title: '测试报告',
 						subs: [{
@@ -50,7 +50,7 @@
 						}]
 					},
 					{
-						icon: 'el-icon-menu',
+						icon: 'el-icon-date',
 						index: 'apitest',
 						title: 'Api测试',
 						subs: [{
@@ -59,7 +59,7 @@
 						}]
 					},
 					{
-						icon: 'el-icon-menu',
+						icon: 'el-icon-date',
 						index: 'apptest',
 						title: 'App测试',
 						subs: [{
@@ -71,7 +71,7 @@
 						}]
 					},
 					{
-						icon: 'el-icon-menu',
+						icon: 'el-icon-date',
 						index: 'webtest',
 						title: 'Web测试',
 						subs: [{
@@ -86,6 +86,18 @@
 						icon: 'el-icon-setting',
 						index: 'usermanage',
 						title: '用户管理'
+					},
+					{
+						icon: 'el-icon-menu',
+						index: 'test',
+						title: '测试页面',
+						subs: [{
+							index: 'componenttest',
+							title: '组件测试'
+						}, {
+							index: 'datatest',
+							title: '数据测试'
+						}]
 					}
 				]
 			}

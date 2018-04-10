@@ -4,7 +4,7 @@
 		<el-table :data="tableData" style="width: 100%" :row-class-name="tableRowClassName" border>
 			<el-table-column type="index" :index="indexMethod">
 			</el-table-column>
-			<el-table-column prop="username" label="用户名">
+			<el-table-column prop="userName" label="用户名">
 			</el-table-column>
 			<el-table-column prop="password" label="密码">
 			</el-table-column>
@@ -21,24 +21,38 @@
 							<el-button type="primary" round size="mini" @click="updateSourceBtn(scope.row,scope.$index)" class="tabelUpdateBtn">查看/编辑</el-button>
 						</el-col>
 						<el-col :span="8">
-							<el-button @click="deleteSourceBtn(scope.row)" type="danger" size="mini" round class="tableDeleteBtn">删除</el-button>
+							<el-button @click="deleteUserBtn(scope.row)" type="danger" size="mini" round class="tableDeleteBtn">删除</el-button>
 						</el-col>
 					</el-row>
 				</template>
 			</el-table-column>
 		</el-table>
 		<!--查看/编辑按钮操作的对话框-->
-		<el-dialog title="查看/修改搜索报文" :visible.sync="updateVisible" :before-close="handleClose" center>
-			弹出框显示内容
-			<!--<el-form :model="updateForm">
-				<el-input type="textarea" autosize placeholder="此处显示数据的id" v-model="updateForm.id">
-				</el-input>
-				<el-input type="textarea" autosize placeholder="此处显示搜索报文内容" v-model="updateForm.source">
-				</el-input>
-				<el-input type="textarea" autosize placeholder="此处显示搜索报文备注" v-model="updateForm.des">
-				</el-input>
-				<p style="font-size:12px;line-height:30px;color:#999;text-align: left;margin-top: 20px;">Tips : 若报文场景变更，请在下方重新选择报文场景。</p>
-			</el-form>-->
+		<el-dialog title="查看/修改用户信息" :visible.sync="updateVisible" :before-close="handleClose" center>
+			<el-form :model="updateForm">
+				<el-form-item label="用户名">
+					<el-input v-model="updateForm.userName"></el-input>
+				</el-form-item>
+				<el-form-item label="密码">
+					<el-input v-model="updateForm.password"></el-input>
+				</el-form-item>
+				<el-form-item label="邮箱">
+					<el-input v-model="updateForm.email"></el-input>
+				</el-form-item>
+				<el-form-item label="出生日期">
+					<el-date-picker v-model="updateForm.birthday" type="date" placeholder="选择日期" format="yyyy 年 MM 月 dd 日" value-format="yyyy-MM-dd">
+					</el-date-picker>
+				</el-form-item>
+
+				<el-form-item label="性别">
+					<!--<el-switch style="display: block" v-model="updateForm.gender" active-color="#13ce66" inactive-color="#ff4949" active-text="男" inactive-text="女" active-value="1" inactive-value="0">
+						>
+					</el-switch>-->
+					<el-radio v-model="updateForm.gender" label="1" checked="true">男</el-radio>
+					<el-radio v-model="updateForm.gender" label="0">女</el-radio>
+				</el-form-item>
+				<!--<p style="font-size:12px;line-height:30px;color:#999;text-align: left;margin-top: 20px;">Tips : 若报文场景变更，请在下方重新选择报文场景。</p>-->
+			</el-form>
 			<div slot="footer" class="dialog-footer">
 				<el-button @click="cancelUpdate">取消变更</el-button>
 				<el-button type="primary" @click="saveUpdate">提交修改</el-button>
@@ -50,6 +64,10 @@
 
 <script>
 	export default {
+		mounted() {
+			//获取数据
+			this.fetchData();
+		},
 		methods: {
 			tableRowClassName({
 				row,
@@ -61,6 +79,7 @@
 				return '';
 			},
 			updateSourceBtn(row, _index) {
+				console.log(row);
 				//记录索引
 				this.tableDataIndex = _index;
 				//记录数据
@@ -88,14 +107,21 @@
 					.catch(_ => {});
 			},
 			//删除按钮执行的操作
-			deleteSourceBtn(row) {
-				var rowInfo = row.des //可以传递参数
-				this.$confirm('是否删除【' + rowInfo + '】请求报文, 是否继续?', '提示', {
+			deleteUserBtn(row) {
+				console.log(row)
+				var userid = row.id;
+				var username = row.userName
+				this.$confirm('是否删除【' + username + '】, 是否继续?', '提示', {
 					confirmButtonText: '确定',
 					cancelButtonText: '取消',
 					type: 'warning',
 					center: true
 				}).then(() => {
+					this.$http.post("http://localhost:8080/ttd-searchtest/removeuser", row).then(function(res) {
+						console.log(res);
+					}).catch(function(err) {
+
+					});
 					this.$message({
 						type: 'success',
 						message: '删除成功!'
@@ -109,132 +135,28 @@
 			},
 			indexMethod(index) {
 				return index + 1;
+			},
+			fetchData() {
+				var _this = this;
+				this.$http.get("http://localhost:8080/ttd-searchtest/findallusers?pageIndex=1").then(function(res) {
+					//					console.log(res.data.pageData);
+					_this.tableData = res.data.pageData;
+				}).catch(function(err) {});
 			}
 		},
 		data() {
 			return {
+				value11: '',
 				updateVisible: false,
-				rowinfo: {
-					id: '',
-					date: '',
-					apitype: '',
-					activitygongge: '',
-					ticketsearchmode: '',
-					activitysearchmode: '',
-					autocompletesearvhtype: '',
-					des: '',
-					source: ''
-				},
 				updateForm: {
 					id: '',
-					date: '',
-					apitype: '',
-					activitygongge: '',
-					ticketsearchmode: '',
-					activitysearchmode: '',
-					autocompletesearvhtype: '',
-					des: '',
-					source: ''
+					userName: '',
+					password: '',
+					email: '',
+					birthday: '',
+					gender: ''
 				},
-				tableData: [{
-						id: 1,
-						username: 'gmluo01',
-						password: '122333',
-						email: 'gmluo@126.com',
-						birthday: '1988-07-16',
-						gender: '1'
-					}, {
-						id: 2,
-						username: 'gmluo01',
-						password: '122333',
-						email: 'gmluo@126.com',
-						birthday: '1988-07-16',
-						gender: '1'
-
-					},
-					{
-						id: 3,
-						username: 'gmluo01',
-						password: '122333',
-						email: 'gmluo@126.com',
-						birthday: '1988-07-16',
-						gender: '1'
-
-					},
-					{
-						id: 4,
-						username: 'gmluo01',
-						password: '122333',
-						email: 'gmluo@126.com',
-						birthday: '1988-07-16',
-						gender: '1'
-
-					},
-					{
-						id: 5,
-						username: 'gmluo01',
-						password: '122333',
-						email: 'gmluo@126.com',
-						birthday: '1988-07-16',
-						gender: '1'
-
-					},
-					{
-						id: 6,
-						username: 'gmluo01',
-						password: '122333',
-						email: 'gmluo@126.com',
-						birthday: '1988-07-16',
-						gender: '1'
-
-					},
-					{
-						id: 7,
-						username: 'gmluo01',
-						password: '122333',
-						email: 'gmluo@126.com',
-						birthday: '1988-07-16',
-						gender: '1'
-
-					},
-					{
-						id: 8,
-						username: 'gmluo01',
-						password: '122333',
-						email: 'gmluo@126.com',
-						birthday: '1988-07-16',
-						gender: '1'
-
-					},
-					{
-						id: 9,
-						username: 'gmluo01',
-						password: '122333',
-						email: 'gmluo@126.com',
-						birthday: '1988-07-16',
-						gender: '1'
-
-					},
-					{
-						id: 10,
-						username: 'gmluo01',
-						password: '122333',
-						email: 'gmluo@126.com',
-						birthday: '1988-07-16',
-						gender: '1'
-
-					}, 
-//					{
-//						id: 11,
-//						username: 'gmluo01',
-//						password: '122333',
-//						email: 'gmluo@126.com',
-//						birthday: '1988-07-16',
-//						gender: '1'
-//
-//					}
-				]
-
+				tableData: []
 			}
 		}
 	}

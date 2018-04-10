@@ -28,9 +28,6 @@
 	import Pagination from '../../common/Pagination.vue'
 	
 	export default{
-		data(){
-			
-		},
 		components:{
 			UserTable,
 			AddUser,

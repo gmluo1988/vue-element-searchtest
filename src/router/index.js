@@ -47,6 +47,10 @@ export default new VueRouter({
 				{
 					path: '/usermanage',
 					component: resolve => require(['../components/contentpages/usermanage/UserManage.vue'], resolve)
+				},
+				{
+					path: '/componenttest',
+					component: resolve => require(['../components/contentpages/test/ComponentTest.vue'], resolve)
 				}
 			]
 
