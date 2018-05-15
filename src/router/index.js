@@ -1,3 +1,5 @@
+
+//导入相关引用
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
